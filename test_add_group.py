@@ -14,7 +14,7 @@ class AppDynamicsJob(unittest.TestCase):
         # as documented in https://docs.appdynamics.com/display/PRO44/Write+Your+First+Script
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "https://www.katalon.com/"
+        # self.base_url = "https://www.katalon.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
 
@@ -28,17 +28,16 @@ class AppDynamicsJob(unittest.TestCase):
         driver.find_element_by_name("pass").send_keys("secret")
         driver.find_element_by_id("LoginForm").submit()
         driver.find_element_by_link_text("groups").click()
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='test_1'])[1]/following::input[1]").click()
+        driver.find_element_by_name("new").click()
         driver.find_element_by_name("group_name").click()
         driver.find_element_by_name("group_name").clear()
-        driver.find_element_by_name("group_name").send_keys("first_bla_bla")
+        driver.find_element_by_name("group_name").send_keys("dddddddddddds")
         driver.find_element_by_name("group_header").click()
         driver.find_element_by_name("group_header").clear()
-        driver.find_element_by_name("group_header").send_keys("asdasdasda")
+        driver.find_element_by_name("group_header").send_keys("sadasdasd")
         driver.find_element_by_name("group_footer").click()
         driver.find_element_by_name("group_footer").clear()
-        driver.find_element_by_name("group_footer").send_keys("asdasdasdasdasd")
+        driver.find_element_by_name("group_footer").send_keys("asdasdasd")
         driver.find_element_by_name("submit").click()
         driver.find_element_by_link_text("group page").click()
         driver.find_element_by_link_text("Logout").click()
