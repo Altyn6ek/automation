@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest
 
 
 class AppDynamicsJob(unittest.TestCase):
     def setUp(self):
         # AppDynamics will automatically override this web driver
         # as documented in https://docs.appdynamics.com/display/PRO44/Write+Your+First+Script
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(executable_path=r'D:\python for testers\Python for testers\учебное '
+                                                        r'приложение\geckodriver.exe')
         self.driver.implicitly_wait(30)
-        # self.base_url = "https://www.katalon.com/"
+        self.base_url = "https://www.katalon.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
 
