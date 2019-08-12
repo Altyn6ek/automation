@@ -1,14 +1,5 @@
 # -*- coding: utf-8 -*-
-import pytest
 from model.group import Group
-from fixture.application import Application
-
-
-@pytest.fixture
-def app():
-    fixture = Application()
-    yield fixture
-    fixture.destroy()
 
 
 def test_add_group(app):
