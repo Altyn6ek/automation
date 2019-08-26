@@ -25,7 +25,7 @@ class GroupHelper:
             driver.find_element_by_name(field_name).send_keys(text)
 
     def fill_group_form(self, group):
-        driver = self.app.driver
+        # driver = self.app.driver
         self.change_field_value("group_name", group.name)
         self.change_field_value("group_header", group.header)
         self.change_field_value("group_footer", group.footer)
