@@ -22,6 +22,7 @@ def app():
 def stop(request):
     def fin():
         fixture.session.logout()
+        fixture.session.ensure_logout()
         fixture.destroy()
     yield fixture
     request.addfinalizer(fin)
