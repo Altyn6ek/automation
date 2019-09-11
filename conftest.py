@@ -24,4 +24,3 @@ def stop(request):
         fixture.destroy()
     yield fixture
     request.addfinalizer(fin)
-
