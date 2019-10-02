@@ -1,6 +1,3 @@
-import time
-
-
 class SessionHelper:
 
     def __init__(self, app):
@@ -15,6 +12,7 @@ class SessionHelper:
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys(password)
         driver.find_element_by_id("LoginForm").submit()
+        self.ensure_login(username, password)
 
     def logout(self):
         driver = self.app.driver
@@ -22,7 +20,6 @@ class SessionHelper:
 
     def is_logged_in(self):
         driver = self.app.driver
-        time.sleep(1)
         return len(driver.find_elements_by_link_text("Logout")) > 0
 
     def is_logged_in_as(self, username):
