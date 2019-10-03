@@ -1,3 +1,8 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 class SessionHelper:
 
     def __init__(self, app):
@@ -12,7 +17,7 @@ class SessionHelper:
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys(password)
         driver.find_element_by_id("LoginForm").submit()
-        self.ensure_login(username, password)
+        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.LINK_TEXT, "Logout")))
 
     def logout(self):
         driver = self.app.driver
