@@ -6,20 +6,13 @@ from fixture.contact import ContactHelper
 
 class Application:
 
-    def __init__(self, browser, baseUrl):
-        if browser == "firefox":
-            self.driver = webdriver.Firefox()
-        elif browser == "chrome":
-            self.driver = webdriver.Chrome()
-        elif browser == "ie":
-            self.driver = webdriver.Ie()
-        else:
-            raise ValueError("Unrecognized browser %s" % browser)
+    def __init__(self):
+        self.driver = webdriver.Firefox(executable_path=r'D:\python for testers\Python for testers\учебное '
+                                                        r'приложение\geckodriver.exe')
         self.driver.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
-        self.baseUrl = baseUrl
 
     def is_valid(self):
         try:
@@ -30,7 +23,7 @@ class Application:
 
     def open_home_page(self):
         driver = self.driver
-        driver.get(self.baseUrl)
+        driver.get("https://www.softaculous.com/demos/PHP_Address_Book")
 
     def destroy(self):
         self.driver.quit()
