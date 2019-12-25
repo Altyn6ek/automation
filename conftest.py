@@ -1,5 +1,3 @@
-__author__ = "Altynbek"
-
 from fixture.application import Application
 import pytest
 import json
